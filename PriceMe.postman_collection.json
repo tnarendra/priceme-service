@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "3a561932-eeb8-43f3-9c2a-19e4abd901cd",
+		"name": "PriceMe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/priceme/product Copy 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/priceme/commodity/prices?commodity=lemon&tons=500&pricePerTon=55.2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priceme",
+						"commodity",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "commodity",
+							"value": "lemon"
+						},
+						{
+							"key": "tons",
+							"value": "500"
+						},
+						{
+							"key": "pricePerTon",
+							"value": "55.2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/priceme/product Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"AF\",\n    \"FIXED_OVERHEAD\": 21,\n    \"VAR_OVERHEAD\": 1.1\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"AL\",\n    \"FIXED_OVERHEAD\": 29,\n    \"VAR_OVERHEAD\": 1.48\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"AS\",\n    \"FIXED_OVERHEAD\": 26,\n    \"VAR_OVERHEAD\": 1.45\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"CA\",\n    \"FIXED_OVERHEAD\": 15,\n    \"VAR_OVERHEAD\": 1.78\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"DZ\",\n    \"FIXED_OVERHEAD\": 14,\n    \"VAR_OVERHEAD\": 1.34\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"HN\",\n    \"FIXED_OVERHEAD\": 32,\n    \"VAR_OVERHEAD\": 1.24\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"IN\",\n    \"FIXED_OVERHEAD\": 20,\n    \"VAR_OVERHEAD\": 1.89\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"MX\",\n    \"FIXED_OVERHEAD\": 33,\n    \"VAR_OVERHEAD\": 1.89\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"BE\",\n    \"FIXED_OVERHEAD\": 27,\n    \"VAR_OVERHEAD\": 1.02\n  },\n  {\n    \"COMMODITY_NAME\": \"CORN\",\n    \"COUNTRY\": \"US\",\n    \"FIXED_OVERHEAD\": 22,\n    \"VAR_OVERHEAD\": 1.67\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"AF\",\n    \"FIXED_OVERHEAD\": 21,\n    \"VAR_OVERHEAD\": 1.1\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"AL\",\n    \"FIXED_OVERHEAD\": 29,\n    \"VAR_OVERHEAD\": 1.48\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"AS\",\n    \"FIXED_OVERHEAD\": 26,\n    \"VAR_OVERHEAD\": 1.45\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"CA\",\n    \"FIXED_OVERHEAD\": 15,\n    \"VAR_OVERHEAD\": 1.78\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"DZ\",\n    \"FIXED_OVERHEAD\": 14,\n    \"VAR_OVERHEAD\": 1.34\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"HN\",\n    \"FIXED_OVERHEAD\": 32,\n    \"VAR_OVERHEAD\": 1.24\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"IN\",\n    \"FIXED_OVERHEAD\": 20,\n    \"VAR_OVERHEAD\": 1.89\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"MX\",\n    \"FIXED_OVERHEAD\": 33,\n    \"VAR_OVERHEAD\": 1.89\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"BE\",\n    \"FIXED_OVERHEAD\": 27,\n    \"VAR_OVERHEAD\": 1.02\n  },\n  {\n    \"COMMODITY_NAME\": \"LEMON\",\n    \"COUNTRY\": \"US\",\n    \"FIXED_OVERHEAD\": 22,\n    \"VAR_OVERHEAD\": 1.67\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/priceme/commodities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priceme",
+						"commodities"
+					],
+					"query": [
+						{
+							"key": "commodities",
+							"value": "[{\"countryCode\":null,\"name\":\"LEMON\",\"fixedOverhead\":1.2,\"varOverhead\":45}]",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
