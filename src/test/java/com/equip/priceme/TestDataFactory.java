@@ -85,7 +85,4 @@ public class TestDataFactory {
         return new ArrayList(Collections.singleton(str));
     }
 
-    public static String getFilePath(String fileName) {
-        return TestDataFactory.class.getClassLoader().getResource(fileName).getPath();
-    }
 }

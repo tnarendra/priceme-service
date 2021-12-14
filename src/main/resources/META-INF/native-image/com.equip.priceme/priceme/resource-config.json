@@ -1,0 +1,9 @@
+{
+  "resources": {
+    "includes": [
+      {"pattern": "application.yml"},
+      {"pattern": "data/data-file.csv"},
+      {"pattern": "logback.xml"}
+    ]
+  }
+}

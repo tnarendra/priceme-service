@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,9 +20,11 @@ public class FileLoader {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileLoader.class);
 
     public List<CommodityDTO> getDataFromFile(String filePath) {
-        List<CommodityDTO> commodityList = new ArrayList<>();
 
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(filePath))) {
+        List<CommodityDTO> commodityList = new ArrayList<>();
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
+        LOGGER.info("Loading the data file - " + filePath);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));) {
 
             String DELIMITER = " ";
             String line;
@@ -39,7 +43,7 @@ public class FileLoader {
             }
 
         } catch (IOException ex) {
-            LOGGER.error("Failed to load data file " + ex.getLocalizedMessage());
+            LOGGER.error("Failed to load data file " + ex);
         }
         return commodityList;
     }

@@ -42,7 +42,7 @@ public class FileLoaderTest {
         List<CommodityDTO> commodityDTOList = TestDataFactory.getCommodityDTODataList(testFileName);
         when(fileLoader.getDataFromFile(testFileName)).thenReturn(commodityDTOList);
 
-        String result = new FileLoader().getDataFromFile(TestDataFactory.getFilePath(testFileName)).toString();
+        String result = new FileLoader().getDataFromFile(testFileName).toString();
         assertEquals(fileLoader.getDataFromFile(testFileName).toString(), result);
 
         verify(fileLoader).getDataFromFile(testFileName);
@@ -53,7 +53,7 @@ public class FileLoaderTest {
     public void testGetDataFromFile_InvalidCountry(String testFileName) {
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new FileLoader().getDataFromFile(TestDataFactory.getFilePath(testFileName));
+            new FileLoader().getDataFromFile(testFileName);
         });
 
         String expectedMessage = "Invalid country code. Country must be ISO3166-1 Alpha-2 two letters country code";
@@ -66,7 +66,7 @@ public class FileLoaderTest {
     public void testGetDataFromFile_InvalidPrice(String testFileName) {
 
         Exception exception = assertThrows(NumberFormatException.class, () -> {
-            new FileLoader().getDataFromFile(TestDataFactory.getFilePath(testFileName));
+            new FileLoader().getDataFromFile(testFileName);
         });
 
         String expectedMessage = "For input string";

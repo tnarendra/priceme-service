@@ -11,6 +11,9 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.List;
 
 @Command(name = "commodity", description = "Get commodity prices and update commodities",
@@ -18,14 +21,13 @@ import java.util.List;
 public class CommodityCommand implements Runnable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CommodityCommand.class);
+
     @Value("${data.file.name}")
     String fileName;
-    @Inject
-    private PriceMeServiceImpl priceMeServiceImpl;
-    @Inject
-    private FileLoader fileLoader;
-    @Inject
-    private CommodityRepository commodityRepository;
+
+    @Inject private PriceMeServiceImpl priceMeServiceImpl;
+    @Inject private FileLoader fileLoader;
+
     @Parameters(index = "0", description = "Commodity name")
     private String commodityName;
     @Parameters(index = "1", description = "Commodity quantity in tons")
@@ -35,9 +37,8 @@ public class CommodityCommand implements Runnable {
 
     @Override
     public void run() {
-        String filePath = getClass().getClassLoader().getResource(fileName).getPath();
 
-        LOGGER.info("Loaded commodities from file " + priceMeServiceImpl.updateCommodities(fileLoader.getDataFromFile(filePath)));
+        priceMeServiceImpl.updateCommodities(fileLoader.getDataFromFile(fileName));
         List<CommodityPricesDTO> commoditiesPrice = priceMeServiceImpl.getCommodityPrices(commodityName, tons, pricePerTon);
 
         StringBuilder sb = new StringBuilder("\n");

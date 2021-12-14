@@ -71,7 +71,7 @@ class PriceMeControllerTest {
         when(priceMeService.updateCommodities(commodityList)).thenReturn(TestDataFactory.getUpdatedCommoditiesData());
 
         final List<Commodity> result = client.toBlocking()
-                .retrieve(HttpRequest.PUT("/commodities", fileLoader.getDataFromFile(TestDataFactory.getFilePath(testFileName))), List.class);
+                .retrieve(HttpRequest.PUT("/commodities", fileLoader.getDataFromFile(testFileName)), List.class);
 
         String str = priceMeService.updateCommodities(commodityList).toString();
         assertEquals(str, result.toString());

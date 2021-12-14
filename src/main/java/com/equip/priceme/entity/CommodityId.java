@@ -1,10 +1,12 @@
 package com.equip.priceme.entity;
 
 import javax.persistence.Embeddable;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@MappedSuperclass
 public class CommodityId implements Serializable {
 
     private String country;

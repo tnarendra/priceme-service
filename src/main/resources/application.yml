@@ -18,4 +18,4 @@ jpa:
         hbm2ddl.auto: update
         bytecode.provider: none
 
-data.file.name: data-file.csv
+data.file.name: data/data-file.csv
